@@ -1,13 +1,12 @@
-package com.example.waterdatabase.com;
+package com.example.controller;
 
-import com.example.waterdatabase.pojo.Ob;
+import com.example.pojo.Ob;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.couchbase.CouchbaseProperties;
 import org.springframework.core.env.Environment;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class HelloController {
@@ -19,12 +18,12 @@ public class HelloController {
     private Ob ob;
     @Autowired
     private Environment env;
-    @RequestMapping("/hello")
-    public String hello()
+    @RequestMapping("/login")
+    public ModelAndView hello(ModelAndView modelAndView)
     {
-        System.out.println(env.getProperty("name.haha"));
-        System.out.println(ob);
-        return "hello"+name;
+        modelAndView.getModel().put("hello","haha");
+        modelAndView.setViewName("login");
+        return modelAndView;
         //return "hellp";
     }
 }

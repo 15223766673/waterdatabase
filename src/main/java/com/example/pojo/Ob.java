@@ -1,4 +1,4 @@
-package com.example.waterdatabase.pojo;
+package com.example.pojo;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
